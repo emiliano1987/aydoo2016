@@ -4,6 +4,10 @@ public class Program
 {
     public static final void main(String arg[])
     {
-        System.out.println("hola!");
+        FactoresPrimos imprimirFactoresPrimos = new FactoresPrimos();
+        int numeroADescomprimir = Integer.parseInt(arg[0]);
+		System.out.print ("Factores primos "+ numeroADescomprimir +" :");
+        imprimirFactoresPrimos.factoresPrimos(numeroADescomprimir,true);
+        System.out.println();
     }
 }
