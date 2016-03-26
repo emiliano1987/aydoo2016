@@ -16,14 +16,10 @@ public class Program
         break;
         	case "--format=quite":
                 int numeroADescomprimirFormatoQuite = Integer.parseInt(arg[0]);
-        		System.out.println ("Factores primos "+ numeroADescomprimirFormatoQuite +" :");
         		imprimirFactoresPrimos.factoresPrimos(numeroADescomprimirFormatoQuite,true,false);
             break;
         		default: 
-        			int numeroADescomprimirFormatoDefault = Integer.parseInt(arg[0]);
-            		System.out.print ("Factores primos "+ numeroADescomprimirFormatoDefault +" :");
-                    imprimirFactoresPrimos.factoresPrimos(numeroADescomprimirFormatoDefault,true,true);
-                    System.out.println("");
+                    System.out.println("Formato no aceptado. Las opciones posibles son: pretty o quiet.");
             break;
         }
     	}catch(ArrayIndexOutOfBoundsException e){
