@@ -1,5 +1,10 @@
 package ar.edu.untref.aydoo;
 
+/**
+ * Clase enumerada que contiene todos los Partidos que participan en la eleccion
+ * @author root
+ *
+ */
 public enum Partido {
 	Cambiemos,
 	FrenteParaLaVictoria,
@@ -11,5 +16,7 @@ public enum Partido {
 	NuevoMas,
 	Mst,
 	PartidoPopular,
-	MovimientodeAccionVecinal;
+	MovimientodeAccionVecinal,
+	//Voto en Blanco
+	enBlanco;
 }

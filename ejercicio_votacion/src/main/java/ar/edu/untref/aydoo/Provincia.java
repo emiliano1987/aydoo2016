@@ -1,5 +1,10 @@
 package ar.edu.untref.aydoo;
 
+/**
+ * Clase enumerada que contiene todas las provincias de Argentina
+ * @author root
+ *
+ */
 public enum Provincia {
 	BuenosAires,
 	Catamarca,
@@ -23,5 +28,5 @@ public enum Provincia {
 	SantaFe,
 	SantiagoDelEstero,
 	TierraDelFuego,
-	Tucuman;
+	Tucuman, 
 	}
