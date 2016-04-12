@@ -9,7 +9,7 @@ import ar.edu.untref.aydoo.Compra;
 import ar.edu.untref.aydoo.Libro;
 import ar.edu.untref.aydoo.Meses;
 
-public class PruebaCompra {
+public class CompraTest {
 
 	Compra nuevaCompra;
 	Libro nuevoLibro;

@@ -52,6 +52,5 @@ public class Kiosco {
 		return precioTotal;
 	}
 
-
 }
 

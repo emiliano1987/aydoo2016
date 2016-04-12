@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class PruebaLibro {
+public class LibroTest {
 
 	Libro nuevoLibro;
 
@@ -17,7 +17,7 @@ public class PruebaLibro {
 
 	@Test
 	public void comprobarNombreDelLibro(){
-		Assert.assertEquals("Recordando", nuevoLibro.obtenerNombreLibro(),0);
+		Assert.assertEquals("Recordando", nuevoLibro.obtenerNombreLibro());
 	}
 
 	@Test

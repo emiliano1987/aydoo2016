@@ -6,9 +6,10 @@ import org.junit.Test;
 
 import ar.edu.untref.aydoo.ArticuloLibreria;
 
-public class PruebaArticuloLibreria {
+public class ArticuloDeLibreriaTest {
 
 	ArticuloLibreria fibron;
+
 	@Before
 	public void inicializar(){
 		fibron  = new ArticuloLibreria ("Fibron", 10);

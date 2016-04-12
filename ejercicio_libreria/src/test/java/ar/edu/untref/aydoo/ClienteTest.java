@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import ar.edu.untref.aydoo.Cliente;
 
-public class PruebaCliente {
+public class ClienteTest {
 
 	Cliente nuevoCliente;
 

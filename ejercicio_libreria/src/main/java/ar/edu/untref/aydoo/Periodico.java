@@ -10,11 +10,11 @@ public class Periodico extends Producto {
 		this.nombrePerodico = nombre;
 		this.periodicidadPeriodico = periodoSalidaDelPeriodicoMensual;
 	}
-	
+
 	public int obtenerperiodicidadDelPeriodico(){
 		return periodicidadPeriodico;
 	}
-	
+
 	public String obtenerNombrePerodico() {
 		return nombrePerodico;
 	}

@@ -10,7 +10,7 @@ import ar.edu.untref.aydoo.Compra;
 import ar.edu.untref.aydoo.Meses;
 import ar.edu.untref.aydoo.Revista;
 
-public class PruebaSuscripcion {
+public class SuscripcionTest {
 
 	Cliente nuevoCliente;
 	Revista nuevaRevistaASuscribir;

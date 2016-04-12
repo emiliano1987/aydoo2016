@@ -4,7 +4,7 @@ public class ArticuloLibreria extends Producto{
 
 	private String nombreArticulo;
 	private static double porcentajeIVA = 21.00;
-	
+
 	public ArticuloLibreria (String nombre, double precioArticulo){
 		super(precioArticulo+=(precioArticulo*porcentajeIVA/100),false);
 		this.nombreArticulo = nombre;

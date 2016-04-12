@@ -4,6 +4,7 @@ public abstract class Producto {
 
 	private double precioDelProducto;
 	private boolean tieneSuscripcionAnual;
+
 	public Producto (double productoAsignaPrecio, boolean suscripcionAnual){
 
 		this.precioDelProducto = productoAsignaPrecio;

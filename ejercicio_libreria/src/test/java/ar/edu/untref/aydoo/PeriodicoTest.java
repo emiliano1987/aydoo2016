@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import ar.edu.untref.aydoo.Periodico;
 
-public class PruebaPeriodico {
+public class PeriodicoTest {
 
 	Periodico nuevoPeriodico;
 

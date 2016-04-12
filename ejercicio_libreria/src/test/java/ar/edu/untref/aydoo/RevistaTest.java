@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import ar.edu.untref.aydoo.Revista;
 
-public class PruebaRevista {
+public class RevistaTest {
 
 	Revista nuevaRevista ;
 	
