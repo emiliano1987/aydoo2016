@@ -32,6 +32,7 @@ public class FactoresPrimos {
 			}
 		}
 	}
+	
 	/**
 	 * Metodo general que llama al resto de las clases dependiendo el numero a descomprimir. Si el mismo se imprime por consola o Archivo y si
 	 * @throws IOException
@@ -56,6 +57,7 @@ public class FactoresPrimos {
 		}
 		return listaFactoresPrimos;
 	}
+	
 	/**
 	 * pre: Indico una lista de factores primos de un numero entero para imprimir en un formato deseado
 	 * post: Imprimo los numeros de la lista
@@ -80,6 +82,7 @@ public class FactoresPrimos {
 			this.nuevoArchivo.close();
 		}
 	}
+	
 	/**
 	 * pre: Indico una lista de factores primos de un numero entero para imprimir en un formato deseado
 	 * post: Imprimo los numeros de la lista

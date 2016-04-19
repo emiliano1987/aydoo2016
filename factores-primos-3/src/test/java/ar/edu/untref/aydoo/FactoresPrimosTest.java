@@ -14,7 +14,6 @@ public class FactoresPrimosTest {
 	public void inicializa() throws IOException{
 		nuevoArchivoGenerado = new FileWriter("textoPrueba.txt");
 	}
-	
 	@Test
 	public void descomprimeFactoresPrimosSoloValo1() throws IOException{
 		FactoresPrimos factorPrimoADescomprimir = new FactoresPrimos();
