@@ -6,18 +6,19 @@ import java.io.IOException;
 public class Program {
 
 	public static final void main(String arg[]) throws IOException{
-		String arreglo = new String();
-		boolean prueba = false;
-		boolean prueba2 = false;
-		boolean respeta = false;
+
+		// Genero los atributos. Los mismos permiten que no se lea dos veces los argumentos
+		String parametroDeArchivo = new String();
+		boolean generaElArchivo = false;
+		boolean ordenAscendente = false;
+		// El atributo contabilizarTamanioDelParametro es para verificar que se haya indicado correctamente la ruta para crear el archivo
 		boolean formatoValido=false;
-		boolean formatoEsInvalido=false;
-		String formato = new String();
+		String rutaArchivo = new String();
 		FactoresPrimos imprimirFactoresPrimos = new FactoresPrimos();
 		FileWriter generarArchivo =null;
 
+		// Lee todos los argumentos ingresados por consola. En caso de encontrar un formato no esperado retorna error
 		for (int contadorParametros=1;contadorParametros<arg.length;contadorParametros++){
-			respeta = arg[contadorParametros].toLowerCase().length()>14;
 			switch (arg[contadorParametros].toLowerCase()){
 			case "--format=pretty":
 				formatoValido=true;
@@ -26,46 +27,45 @@ public class Program {
 				formatoValido=true;
 				break;
 			case "--sort:asc":
-				formatoValido=true;
-				prueba2=true;
+				ordenAscendente=true;
 				break;
 			case "--sort:des":
-				formatoValido=true;
+				ordenAscendente=false;
 				break;
-			default: 			
-				if (respeta == true){
+			default: 	
+				if (arg[contadorParametros].toLowerCase().length()>14){
 					if (arg[contadorParametros].toLowerCase().substring(0, 14).equals("--output-file=") ){
-						formato = arg[contadorParametros].substring(14);
-						arreglo = arg[contadorParametros].toLowerCase();
-						prueba = true;
-						formatoValido=true;
+						rutaArchivo = arg[contadorParametros].substring(14);
+						parametroDeArchivo = arg[contadorParametros].toLowerCase();
+						generaElArchivo = true;
 					}
 				}else{
-				formatoValido=false;}
+					formatoValido=false;
+				}
 				break;
 			}
-			if (formatoValido == false){
-				formatoEsInvalido = true;
-			}
 		}
+		if (generaElArchivo == true && formatoValido == true){
+			// Si hay una barra, lo genera en el lugar indicado, sino lo envia a la carpeta target donde se guardan los jar
+			if(rutaArchivo.contains("/")){
+				generarArchivo = new FileWriter(rutaArchivo);	
+			}else{
+				generarArchivo = new FileWriter("target/" + rutaArchivo);			
+			}
 
-
-
-		if (prueba == true && formatoEsInvalido == false){
-			generarArchivo = new FileWriter(formato);
 			for (int nuevoContador=1;nuevoContador<arg.length;nuevoContador++){
 
 				switch (arg[nuevoContador].toLowerCase()){
 				case "--format=pretty":
 					int numeroADescomprimirFormatoPretty = Integer.parseInt(arg[0]);
-					imprimirFactoresPrimos.factoresPrimos(numeroADescomprimirFormatoPretty,true,true,prueba2,generarArchivo);
+					imprimirFactoresPrimos.factoresPrimos(numeroADescomprimirFormatoPretty,true,true,ordenAscendente,generarArchivo);
 					break;
 				case "--format=quite":
 					int numeroADescomprimirFormatoQuite = Integer.parseInt(arg[0]);
-					imprimirFactoresPrimos.factoresPrimos(numeroADescomprimirFormatoQuite,true,false,prueba2,generarArchivo);
+					imprimirFactoresPrimos.factoresPrimos(numeroADescomprimirFormatoQuite,true,false,ordenAscendente,generarArchivo);
 					break;
 				default: 
-					if(!(arreglo.equals(arg[nuevoContador].toLowerCase())||!(arg[nuevoContador].toLowerCase().equals("--sort:des"))||(!(arg[nuevoContador].toLowerCase().equals("--sort:asc"))))){
+					if(!(parametroDeArchivo.equals(arg[nuevoContador].toLowerCase())||!(arg[nuevoContador].toLowerCase().equals("--sort:des"))||(!(arg[nuevoContador].toLowerCase().equals("--sort:asc"))))){
 						System.out.println("Formato no aceptado. Por favor indicar el formato o el tipo de salida.");
 						System.out.println("Para formato: --format=pretty o --format=quite");
 						System.out.println("Para orden: --sort:des o --sort:asc");
@@ -73,20 +73,20 @@ public class Program {
 					break;
 				}       
 			}
-		}else if (prueba == false && formatoEsInvalido == false){
+		}else if (generaElArchivo == false && formatoValido == true){
 			for (int nuevoContadorEnElse=1;nuevoContadorEnElse<arg.length;nuevoContadorEnElse++){
 
 				switch (arg[nuevoContadorEnElse].toLowerCase()){
 				case "--format=pretty":
 					int numeroADescomprimirFormatoPretty = Integer.parseInt(arg[0]);
 					System.out.print ("Factores primos "+ numeroADescomprimirFormatoPretty +" :");
-					imprimirFactoresPrimos.factoresPrimos(numeroADescomprimirFormatoPretty, false, true,prueba2, generarArchivo);
+					imprimirFactoresPrimos.factoresPrimos(numeroADescomprimirFormatoPretty, false, true,ordenAscendente, generarArchivo);
 					System.out.println("");
 					break;
 				case "--format=quite":
 					int numeroADescomprimirFormatoQuite = Integer.parseInt(arg[0]);
 					System.out.print ("Factores primos "+ numeroADescomprimirFormatoQuite +" :");
-					imprimirFactoresPrimos.factoresPrimos(numeroADescomprimirFormatoQuite,false,false,prueba2,generarArchivo);
+					imprimirFactoresPrimos.factoresPrimos(numeroADescomprimirFormatoQuite,false,false,ordenAscendente,generarArchivo);
 					System.out.println("");
 					break;
 				default: 

@@ -1,7 +1,10 @@
 package ar.edu.untref.aydoo;
+
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
 
 public class FactoresPrimos {
 
@@ -10,12 +13,12 @@ public class FactoresPrimos {
 	int valorDivisible =2;
 	FileWriter nuevoArchivo = null;
 	ArrayList<Integer> listaFactoresPrimos=new ArrayList<Integer> ();
+
 	/**
 	 *	pre: ingreso un numero entero. Ademas indico si deseo imprimir sus valores y que formato se espera de salida
 	 *	post: generar toda la descomposicion en factores primos
 	 * @throws IOException 
 	 **/
-
 	public void factoresPrimosDescomprime (int numeroPrimoADescomponer){
 		if(numeroPrimoADescomponer>1){
 			if(numeroPrimoADescomponer%valorDivisible==0){
@@ -29,11 +32,20 @@ public class FactoresPrimos {
 			}
 		}
 	}
+	/**
+	 * Metodo general que llama al resto de las clases dependiendo el numero a descomprimir. Si el mismo se imprime por consola o Archivo y si
+	 * @throws IOException
+	 **/
 	public ArrayList<Integer> factoresPrimos (int numeroPrimoADescomponer, boolean imprime, boolean format,boolean orden,FileWriter nuevoArchivo) throws IOException{
 		this.imprime = imprime;
 		this.orden = orden;
 		this.nuevoArchivo = nuevoArchivo;
-		this.factoresPrimosDescomprime(numeroPrimoADescomponer);
+		// Valida que el numero sea 1
+		if(numeroPrimoADescomponer == 1){
+			this.listaFactoresPrimos.add(numeroPrimoADescomponer);
+		}else{
+			this.factoresPrimosDescomprime(numeroPrimoADescomponer);
+		}
 		if(this.imprime == true){
 			this.nuevoArchivo.write("Factores primos "+ numeroPrimoADescomponer +" :");
 		}
@@ -75,18 +87,18 @@ public class FactoresPrimos {
 	 */
 	public void imprimirDescomposicionFormatoQuite(ArrayList<Integer> listaFactoresPrimos)throws IOException{
 		if(this.orden == false){
-		ListIterator<Integer> iterarListaFactoresPrimos = listaFactoresPrimos.listIterator(listaFactoresPrimos.size());
-		while (iterarListaFactoresPrimos.hasPrevious()) {
-			if (this.imprime == false){
-				System.out.println("");
-				Integer numeroDescomprimido = iterarListaFactoresPrimos.previous();
-				System.out.print(numeroDescomprimido);
-			}else{
-				this.nuevoArchivo.write("\n");
-				Integer numeroDescomprimido = iterarListaFactoresPrimos.previous();
-				this.nuevoArchivo.write(numeroDescomprimido.toString());
+			ListIterator<Integer> iterarListaFactoresPrimos = listaFactoresPrimos.listIterator(listaFactoresPrimos.size());
+			while (iterarListaFactoresPrimos.hasPrevious()) {
+				if (this.imprime == false){
+					System.out.println("");
+					Integer numeroDescomprimido = iterarListaFactoresPrimos.previous();
+					System.out.print(numeroDescomprimido);
+				}else{
+					this.nuevoArchivo.write("\n");
+					Integer numeroDescomprimido = iterarListaFactoresPrimos.previous();
+					this.nuevoArchivo.write(numeroDescomprimido.toString());
+				}
 			}
-		}
 		}else if(this.orden == true){
 			Iterator<Integer> iterarListaFactoresPrimos = listaFactoresPrimos.iterator();
 			while (iterarListaFactoresPrimos.hasNext()) {
@@ -117,5 +129,4 @@ public class FactoresPrimos {
 		int valorEnPosicion = this.listaFactoresPrimos.get(posicion);
 		return valorEnPosicion;
 	}
-
 }
