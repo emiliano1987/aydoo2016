@@ -16,7 +16,7 @@ public class Mes {
 	 * @Pre: - 
 	 * @Post: Devuelve el nombre del Mes.
 	 */
-	public String getNombre(){
+	public String obtenerNombre(){
 		return this.nombre;
 	}
 

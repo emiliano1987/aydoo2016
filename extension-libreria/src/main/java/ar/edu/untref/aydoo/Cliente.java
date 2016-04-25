@@ -8,6 +8,7 @@ public class Cliente {
 	private String nombre;
 	private String direccion;
 	private List<Compra> compras;
+	private List<Alquiler> alquiler;
 	private List<Suscripcion> suscripciones;
 
 	/**
@@ -19,15 +20,15 @@ public class Cliente {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.compras = new LinkedList<Compra>();
+		this.alquiler = new LinkedList<Alquiler>();
 		this.suscripciones = new LinkedList<Suscripcion>();
-
 	}
 
 	/**
 	 * @Pre: - 
 	 * @Post: Devuelve el nombre del Cliente.
 	 */
-	public String getNombre(){
+	public String obtenerNombre(){
 		return this.nombre;
 	}
 
@@ -35,7 +36,7 @@ public class Cliente {
 	 * @Pre: - 
 	 * @Post: Devuelve la direccion del Cliente.
 	 */
-	public String getDireccion(){
+	public String obtenerDireccion(){
 		return this.direccion;
 	}
 
@@ -48,14 +49,26 @@ public class Cliente {
 	}
 
 	/**
+	 * 
+	 */
+	public void agregaAlquiler (Alquiler nuevoAlquiler){
+		this.alquiler.add(nuevoAlquiler);
+	}
+
+	public List<Alquiler> obtenerAlquilerDeLibros(){
+		return this.alquiler;
+	}
+
+	/**
 	 * @Pre: - 
 	 * @Post: Devuelve la lista de compras que hizo el Cliente.
 	 */
-	public List<Compra> getCompras(){
+	public List<Compra> obtenerCompras(){
 		return this.compras;
 	}
 
 	/**
+	 * @throws SuscripcionExistente 
 	 * @Pre: suscriptible es distinto de null y no hay una suscripcion previa a el (La entrada se supone valida).
 	 * @Post: El Cliente queda suscripto al suscriptible indicado y se agrega a la lista de suscripciones.
 	 */
@@ -67,6 +80,7 @@ public class Cliente {
 	}
 
 	/**
+	 * @throws SuscripcionExistente 
 	 * @Pre: suscriptible es distinto de null y no hay una suscripcion previa a el (La entrada se supone valida).
 	 * @Post: El Cliente queda suscripto anualmente al suscriptible indicado y se agrega a la lista de suscripciones.
 	 */
@@ -89,37 +103,36 @@ public class Cliente {
 	 * @Pre: - 
 	 * @Post: Devuelve la lista de suscripciones a suscriptibles del Cliente.
 	 */
-	public List<Suscripcion> getSuscripciones(){
+	public List<Suscripcion> obtenerSuscripciones(){
 		return this.suscripciones;
 	}
 
+	/**
+	 * @Pre: suscriptible es distinto de null (La entrada se supone valida).
+	 * @Post: Devuelve si el suscriptible existe en la lista.
+	 */
 	private boolean suscriptibleExiste(Suscriptible suscriptible){
 
 		boolean suscriptibleExiste = false;
 
 		for(int i = 0 ; i < this.suscripciones. size() ; i++){
-
-			if(this.suscripciones.get(i).getSuscriptible() == suscriptible){
-
+			if(this.suscripciones.get(i).obtenerSuscriptible() == suscriptible){
 				suscriptibleExiste = true;
-
 			}
-
 		}
-
 		return suscriptibleExiste;
-
 	}
 
+	/**
+	 * @Pre: suscriptible y esAnual es distinto de null (La entrada se supone valida).
+	 * @Post: si el suscriptible no existe en la lista se agrega un nuevo suscriptible en la lista.
+	 */
 	private void crearSuscripcion(Suscriptible suscriptible, boolean esAnual){
 
 		if(!this.suscriptibleExiste(suscriptible)){
-
 			Suscripcion suscripcion = new Suscripcion(this, suscriptible, esAnual);
 			this.suscripciones.add(suscripcion);
-
 		}
-
 	}
 
 }

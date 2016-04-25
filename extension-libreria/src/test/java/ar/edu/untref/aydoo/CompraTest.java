@@ -11,8 +11,7 @@ public class CompraTest {
 		Mes enero = new Mes("Enero");
 		Compra compra = new Compra(enero);
 
-		Assert.assertTrue(compra.getMes().getNombre().equals("Enero"));
-
+		Assert.assertTrue(compra.obtenerMes().obtenerNombre().equals("Enero"));
 	}
 
 	@Test
@@ -24,8 +23,7 @@ public class CompraTest {
 
 		compra.agregarProducto(lapicera);
 
-		Assert.assertEquals(1, compra.getProductos().size());
-
+		Assert.assertEquals(1, compra.obtenerProductos().size());
 	}
 
 }

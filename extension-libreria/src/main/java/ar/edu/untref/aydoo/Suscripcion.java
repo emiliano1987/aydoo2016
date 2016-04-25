@@ -15,14 +15,13 @@ public class Suscripcion {
 		this.cliente = cliente;
 		this.suscriptible = suscriptible;
 		this.esAnual = esAnual;
-
 	}
 
 	/**
 	 * @Pre: - 
 	 * @Post: Devuelve el Cliente al que pertenece la Suscripcion.
 	 */
-	public Cliente getCliente(){
+	public Cliente obtenerCliente(){
 		return this.cliente;
 	}
 
@@ -30,7 +29,7 @@ public class Suscripcion {
 	 * @Pre: - 
 	 * @Post: Devuelve el suscriptible al que esta sujeto la Suscripcion.
 	 */
-	public Suscriptible getSuscriptible(){
+	public Suscriptible obtenerSuscriptible(){
 		return this.suscriptible;
 	}
 

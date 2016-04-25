@@ -16,7 +16,7 @@ public class ArticuloDeLibreria extends Producto{
 	 * @Post: Devuelve el precio a pagar, con IVA incluido, por el Articulo de Libreria en base al precio unitario.
 	 */
 	@Override
-	public double getPrecioAPagar() {
+	public double obtenerPrecioAPagar() {
 		double montoTotal = this.precioUnitario * 1.21;		
 		return montoTotal;
 	}

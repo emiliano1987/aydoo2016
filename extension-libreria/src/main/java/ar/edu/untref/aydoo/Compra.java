@@ -21,7 +21,7 @@ public class Compra {
 	 * @Pre: - 
 	 * @Post: Devuelve el mes en el que se hizo la Compra.
 	 */
-	public Mes getMes(){
+	public Mes obtenerMes(){
 		return this.mes;
 	}
 
@@ -37,7 +37,7 @@ public class Compra {
 	 * @Pre: - 
 	 * @Post: Devuelve la lista de productos que tiene la Compra.
 	 */
-	public List<Producto> getProductos(){
+	public List<Producto> obtenerProductos(){
 		return this.productos;
 	}
 

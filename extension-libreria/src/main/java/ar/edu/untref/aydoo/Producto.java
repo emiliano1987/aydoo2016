@@ -11,16 +11,15 @@ public abstract class Producto {
 	 */
 	public Producto(String descripcion, double precioUnitario){
 
-		this.setDescripcion(descripcion);
-		this.setPrecioUnitario(precioUnitario);
-
+		this.modificarDescripcion(descripcion);
+		this.modificarPrecioUnitario(precioUnitario);
 	}
 
 	/**
 	 * @Pre: - 
 	 * @Post: Devuelve la descripcion del Producto.
 	 */
-	public String getDescripcion(){
+	public String obtenerDescripcion(){
 		return this.descripcion;
 	}
 
@@ -28,7 +27,7 @@ public abstract class Producto {
 	 * @Pre: nuevaDescripcion es distinta de null (La entrada se supone valida).
 	 * @Post: Cambia la descripcion actual del Producto por la nueva descripcion insertada.
 	 */
-	public void setDescripcion(String nuevaDescripcion){
+	public void modificarDescripcion(String nuevaDescripcion){
 		this.descripcion = nuevaDescripcion;
 	}
 
@@ -36,7 +35,7 @@ public abstract class Producto {
 	 * @Pre: - 
 	 * @Post: Devuelve el precio a pagar por el Producto en base al precio unitario.
 	 */
-	public double getPrecioAPagar(){
+	public double obtenerPrecioAPagar(){
 		return this.precioUnitario;
 	}
 
@@ -44,7 +43,7 @@ public abstract class Producto {
 	 * @Pre: precioNuevo es un decimal mayor que 0 (Cero) (La entrada se supone valida).
 	 * @Post: Cambia el precio unitario actual del Producto por el nuevo precio insertado.
 	 */
-	public void setPrecioUnitario(double precioNuevo){
+	public void modificarPrecioUnitario(double precioNuevo){
 		this.precioUnitario = precioNuevo;
 	}
 

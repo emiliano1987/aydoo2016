@@ -10,9 +10,8 @@ public class ClienteTest {
 
 		Cliente nahuel = new Cliente("Nahuel", "Olavarria 5700");
 
-		Assert.assertTrue(nahuel.getNombre().equals("Nahuel"));
-		Assert.assertTrue(nahuel.getDireccion().equals("Olavarria 5700"));
-
+		Assert.assertTrue(nahuel.obtenerNombre().equals("Nahuel"));
+		Assert.assertTrue(nahuel.obtenerDireccion().equals("Olavarria 5700"));
 	}
 
 	@Test
@@ -26,34 +25,32 @@ public class ClienteTest {
 		compra.agregarProducto(cocina);
 		melisa.agregarCompra(compra);
 
-		Assert.assertEquals(1, melisa.getCompras().size());
-
+		Assert.assertEquals(1, melisa.obtenerCompras().size());
 	}
 
 	@Test
-	public void unClienteSeSuscribeAUnaRevistaYSeVerificaQueLaSuscripcionSeHayaGuardadoDeFormaCorrecta(){
+	public void clienteSeSuscribeARevistaYSeVerificaQueLaSuscripcionSeGuardaCorrectamente(){
 
 		Cliente juan = new Cliente("Juan", "Pringles 541");
 		Periodicidad quincenal = new Periodicidad("Quincenal", 15);
-		Suscriptible dragonBallZ = new Revista("Dragon Ball Z", 50, quincenal);
+		Suscriptible dragonBallZ = new RevistaOPeriodico("Dragon Ball Z", 50, quincenal);
 
 		juan.suscribirse(dragonBallZ);
 
-		Assert.assertEquals(1, juan.getSuscripciones().size());
-
+		Assert.assertEquals(1, juan.obtenerSuscripciones().size());
 	}
 
 	@Test
-	public void unClienteSeSuscribeAnualmenteAUnaRevistaYSeVerificaQueLaSuscripcionSeHayaGuardadoDeFormaCorrecta(){
+	public void seSuscribeAlClienteAnualmenteAlMismoArticulo(){
 
-		Cliente juan = new Cliente("Juan", "Pringles 541");
+		Cliente jose = new Cliente("Jose", "Hidalgo 1301");
 		Periodicidad quincenal = new Periodicidad("Quincenal", 15);
-		Suscriptible pokemon = new Revista("Pokemon", 50, quincenal);
+		Suscriptible dragonBallZ = new RevistaOPeriodico("Dragon Ball Z", 50, quincenal);
 
-		juan.suscribirseAnualmente(pokemon);
+		jose.suscribirseAnualmente(dragonBallZ);
+		jose.suscribirseAnualmente(dragonBallZ);
 
-		Assert.assertEquals(1, juan.getSuscripciones().size());
-
+		Assert.assertEquals(1, jose.obtenerSuscripciones().size());
 	}
 
 }

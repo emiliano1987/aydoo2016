@@ -18,7 +18,7 @@ public class Periodicidad {
 	 * @Pre: - 
 	 * @Post: Devuelve la descripcion de la Periodicidad.
 	 */
-	public String getDescripcion(){
+	public String obtenerDescripcion(){
 		return this.descripcion;
 	}
 
@@ -26,7 +26,7 @@ public class Periodicidad {
 	 * @Pre: - 
 	 * @Post: Devuelve la frecuencia de edicion de la Periodicidad en dias.
 	 */
-	public int getFrecuenciaDeEdicion(){
+	public int obtenerFrecuenciaDeEdicion(){
 		return this.frecuenciaDeEdicion;
 	}
 
